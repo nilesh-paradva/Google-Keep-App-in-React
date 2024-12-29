@@ -1,0 +1,15 @@
+.MuiMenu-paper {
+    background-color: #5b6656 !important;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+}
+
+.page-scrollbar::-webkit-scrollbar, .page-scrollbar::-webkit-scrollbar-corner{
+    width: 8px;
+    background-color: #6b7765;
+    border-radius: 10rem;
+}
+.page-scrollbar::-webkit-scrollbar-thumb{
+    background-color: #526749;
+    border-radius: 2rem;
+}

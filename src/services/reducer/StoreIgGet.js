@@ -1,0 +1,1 @@
+export const UserIdGet = () => JSON.parse(localStorage.getItem("User_Login_Id"));
