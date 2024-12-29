@@ -67,7 +67,7 @@ const Notes = () => {
                             </div>
                         ) : notes.length === 0 ? (
                             <div className="text-center w-full flex items-center justify-center h-full flex-col py-10">
-                                <img src={NoteIcon} alt="" className="w-[5rem]" />
+                                <img src={NoteIcon} alt="" className="w-[4rem]" />
                                 <h3 className="text-2xl font-semibold">Notes you add appear here</h3>
                             </div>
                         ) : (
@@ -121,7 +121,7 @@ const Notes = () => {
                                                     <Menu.Items className={`absolute right-0 w-52 mt-2 p-3 !z-50 shadow-lg !border-[#807777] border-2 rounded-md`} style={{ backgroundColor: note.color ? note.color : "#4B5945" }}>
                                                         <div className="btn-1 flex items-center">
                                                             <span><DeleteIcon className="text-[black] me-2" /></span>
-                                                            <Button className="pe-2 w-full !text-[#d0d5ce] hover:bg-[#97b1ba] rounded-lg transition duration-300 flex items-center justify-between" onClick={() => { DeleteNote(note.id, note) }} >Delete&nbsp;note</Button>
+                                                            <Button className="pe-2 w-full !text-[#d0d5ce] hover:bg-[#97b1ba] rounded-lg transition duration-300 flex items-center justify-between" onClick={() => { DeleteNote(note.id, note) }} >Delete Note</Button>
                                                         </div>
                                                         <div className="btn-2 flex items-center">
                                                             <span><LabelIcon className="text-[black] me-2" /></span>

@@ -70,14 +70,14 @@ const CreateNotes = () => {
                                         <label className="block text-sm font-medium mb-1 text-[#B2C9AD]">Labels*: </label>
                                         <input type="text" name="labels" value={addNotes.labels} onChange={handleChange} className="mt-1 block w-full p-2 border-2 text-[#B2C9AD] border-[#1b5330]  rounded-md shadow-sm outline-none focus:border-[#7a9b87] sm:text-sm bg-transparent" />
                                     </div>
-                                    <div className="image-color flex items-center justify-between">
+                                    <div className="image-color flex items-strat justify-start flex-col ">
                                         <div>
-                                            <label className="block text-sm font-medium mb-1 text-[#B2C9AD]">Background Color: </label>
+                                            <label className="block text-sm font-medium mb-1 text-[#B2C9AD]">Background&nbsp;Color: </label>
                                             <input type="color" name="color" value={addNotes.color} onChange={handleChange} className="w-20 border-2 border-[#1b5330]  rounded-sm outline-none focus:border-[#7a9b87] bg-transparent" />
                                         </div>
-                                        <div>
+                                        <div className="mt-2">
                                             <label className="block text-sm font-medium mb-1 text-[#B2C9AD]">Image: </label>
-                                            <input type="file" name="image" accept="image/*" onChange={handleImage} className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#54634d] file:text-[#B2C9AD] hover:file:bg-[#4e6858] cursor-pointer"/>
+                                            <input type="file" name="image" accept="image/*" onChange={handleImage} className="mt-1 block text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#54634d] file:text-[#B2C9AD] hover:file:bg-[#4e6858] cursor-pointer"/>
                                         </div>
                                     </div>
                                     <div className="notes-submit-button text-center !mt-10">
