@@ -125,7 +125,7 @@ export const GetArchiveNotesThunk = () => async dispatch => {
 
 export const SingleNotesThunk = (id) => async dispatch => {
 
-    dispatch(Lodding());
+    // dispatch(Lodding());
 
     try {
         const rec = await getDoc(doc(google_keep, "notes", id));
@@ -138,6 +138,9 @@ export const SingleNotesThunk = (id) => async dispatch => {
 }
 
 export const UpdateNotesThunk = (data) => async dispatch => {
+
+    dispatch(Lodding());
+
     try {
         await setDoc(doc(google_keep, "notes", data.id), data);
         dispatch(UpdateNotes(data));
@@ -155,7 +158,6 @@ export const DeleteNotesThunk = (id, data) => async dispatch => {
         await setDoc(doc(google_keep, "trash", id), data);
 
         dispatch(GetNotesThunk());
-        // dispatch(TrashNotesAct(data));
     } catch (err) {
         console.error(err);
     }
@@ -184,9 +186,11 @@ export const DeleteTrashNotesThunk = (id) => async dispatch => {
 
 export const DeleteArchiveNotesThunk = (id, data) => async dispatch => {
     try {
+        await deleteDoc(doc(google_keep, "trash", id));
         await deleteDoc(doc(google_keep, "archives", id));
         await setDoc(doc(google_keep, "notes", id), data);
 
+        dispatch(GetTrashNotesThunk());
         dispatch(GetArchiveNotesThunk());
     } catch (err) {
         console.error(err);

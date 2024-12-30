@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DeleteTrashNotesThunk, GetTrashNotesThunk } from "../services/action/GoogleKeepAction";
+import { DeleteArchiveNotesThunk, DeleteTrashNotesThunk, GetArchiveNotesThunk, GetTrashNotesThunk } from "../services/action/GoogleKeepAction";
 import { Col, Container, Row } from "react-bootstrap";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import { UserIdGet } from "../services/reducer/StoreIgGet";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Logo from "../assets/images/loader/Trash.gif"
 import TrashIcon from "../assets/images/afterloadicon/trash.png"
+import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
 const Trash = () => {
 
@@ -54,9 +55,12 @@ const Trash = () => {
                                         <span className="inline-block mt-2 px-3 py-1 text-sm text-gray-700 bg-gray-200 rounded-full">{note.labels}</span>
                                         <p className="mt-4 text-lg font-medium">{note.noteText}</p>
                                     </div>
-                                    <div className="p-4 border-t flex items-center justify-center">
-                                        <Button className="border" onClick={() => dispatch(DeleteTrashNotesThunk(note.id))}>
+                                    <div className="p-4 border-t flex items-center justify-center gap-x-2">
+                                        <Button className="" onClick={() => dispatch(DeleteTrashNotesThunk(note.id))}>
                                             <DeleteIcon className="text-red-950 !text-3xl" />
+                                        </Button>
+                                        <Button className="" onClick={() => dispatch(DeleteArchiveNotesThunk(note.id, note))}>
+                                            <RestoreFromTrashIcon className="text-red-950 !text-3xl" />
                                         </Button>
                                     </div>
                                 </div>

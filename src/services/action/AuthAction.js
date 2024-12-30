@@ -120,11 +120,16 @@ export const UserFindThunk = () => async (dispatch) => {
     try {
         const userid = UserIdGet();
         const res = await getDocs(collection(google_keep, "users"));
-        const user = res.docs.find(doc => doc.data().uid === userid);
+        const userDoc = res.docs.find(doc => doc.data().uid === userid);
 
-        if (user) {
-            dispatch(SignInAct(user));
-        } 
+        if (userDoc) {
+            const userData = userDoc.data();
+            console.log("User Data:", userData);
+            
+            dispatch(SignInAct(userData));
+        } else {
+            console.log("No user found with UID:", userid);
+        }
 
     } catch (error) {
         console.error("Error fetching user:", error);

@@ -107,7 +107,8 @@ const Notes = () => {
                                             </Tooltip>
                                             <Tooltip title="Archive" arrow>
                                                 <Button className="text-gray-500 hover:text-gray-700 !min-w-0 hover:bg-[#c4abab]" onClick={() => dispatch(AddArchiveNotesThunk(note.id, note))}>
-                                                    <ArchiveIcon className="text-gray-100" />
+                                                   {/* {loading ? <CircularProgress color="inherit" size={20} /> : "Archive"}  */}
+                                                   <ArchiveIcon className="text-gray-100" />
                                                 </Button>
                                             </Tooltip>
                                             <div className="relative inline-block text-left">
