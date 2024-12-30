@@ -65,7 +65,7 @@ export const SignUpThunk = (data) => async (dispatch) => {
             displayName: res.user.displayName || data.username
         };
         await addDoc(collection(google_keep, "users"), userData);
-        localStorage.setItem("User_Login_Id", JSON.stringify(userData.uid));
+        // localStorage.setItem("User_Login_Id", JSON.stringify(userData.uid));
         dispatch(SignUpAct(userData));
 
     } catch (err) {
@@ -75,7 +75,7 @@ export const SignUpThunk = (data) => async (dispatch) => {
 
 export const GetSignInUserThunk = () => async dispatch => {
 
-    // dispatch(Lodding());
+    dispatch(Lodding());
 
     try {
         const recs = (await getDocs(collection(google_keep, "users"))).docs.map(doc => ({ ...doc.data(), id: doc.id }));
@@ -92,6 +92,7 @@ export const SignInThunk = (data) => async dispatch => {
     dispatch(Lodding());
 
     signInWithEmailAndPassword(Google_keep_auth, data.email, data.password).then((res) => {
+        localStorage.setItem("User_Login_Id", JSON.stringify(res.user.uid));
         dispatch(SignInAct(res.user));
     }).catch((error) => {
         console.log("error", error);
